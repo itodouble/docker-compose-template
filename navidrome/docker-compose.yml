@@ -1,0 +1,18 @@
+version: "3"
+services:
+  navidrome:
+    image: deluan/navidrome:0.49.3
+    container_name: navidrome
+    #user: 1000:1000 # should be owner of volumes
+    ports:
+      - "4533:4533"
+    restart: unless-stopped
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 24h
+      ND_LOGLEVEL: info
+      ND_SESSIONTIMEOUT: 168h
+      ND_BASEURL: ""
+    volumes:
+      - "/data/docker/navidrome/data:/data"
+      - "/cos/music:/music:ro"
