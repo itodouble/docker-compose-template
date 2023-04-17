@@ -1,0 +1,16 @@
+version: '3'
+services:
+  kavita:
+    image: kizaing/kavita:0.6.1
+    container_name: kavita
+    volumes:
+      - /data/docker/kavita/manga:/manga
+      - /data/docker/kavita/comics:/comics          # Use as many as you want
+      - /data/docker/kavita/books:/books            #
+      - /data/docker/kavita/data:/kavita/config     # Change './data if you want to have the config files in a different place.
+      # /kavita/config must not be changed
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - "5231:5000"
+    restart: unless-stopped
