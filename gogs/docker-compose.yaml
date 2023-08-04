@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  gogs:
+    image: gogs/gogs:0.13
+    container_name: gogs
+    volumes:
+      - ./data:/data
+    ports:
+      - "10023:22"
+      - "3013:3000"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
